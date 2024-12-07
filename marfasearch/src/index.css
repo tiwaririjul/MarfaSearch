@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Webkit browsers */
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
