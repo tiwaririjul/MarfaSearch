@@ -42,7 +42,7 @@ const SearchPage: React.FC = () => {
   });
 
   if (selectedTag && selectedTag !== "all") {
-    filteredBlogs = filteredBlogs?.filter((blog) =>
+    filteredBlogs = filteredBlogs?.filter((blog: BlogData) =>
       blog.hashtags.includes(selectedTag)
     );
   }
@@ -140,7 +140,7 @@ const SearchPage: React.FC = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full sm:max-w-6xl mx-7 mt-6">
         {filteredBlogs.length > 0 ? (
-          filteredBlogs.map((result) => (
+          filteredBlogs.map((result: BlogData) => (
             <div
               key={result.id}
               className="w-full sm:w-96 mx-auto bg-white shadow-lg border border-gray-200 rounded-lg overflow-hidden mb-6"
