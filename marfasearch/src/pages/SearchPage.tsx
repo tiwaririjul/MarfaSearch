@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Input } from "@/components/ui/input"; // ShadCN Input
+import { Input } from "../components/ui/input"; // ShadCN Input
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import {
   DropdownMenu,
@@ -8,10 +8,10 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { blogData, BlogData } from "@/lib/data";
-import { hastags } from "@/lib/data";
+} from "../components/ui/dropdown-menu";
+import { Button } from "../components/ui/button";
+import { blogData, BlogData } from "../lib/data";
+import { hastags } from "../lib/data";
 import { FaSearch } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa";
 
@@ -25,14 +25,14 @@ const SearchPage: React.FC = () => {
 
   const dropdownContentRef = useRef(null);
 
-  const handleScroll = () => {
-    const element = dropdownContentRef.current;
-    if (element) {
-      const maxScroll = element.scrollHeight - element.clientHeight;
-      const scrollPercent = (element.scrollTop / maxScroll) * 100;
-      setScrollProgress(scrollPercent);
-    }
-  };
+  // const handleScroll = () => {
+  //   const element = dropdownContentRef.current;
+  //   if (element) {
+  //     const maxScroll = element.scrollHeight - element.clientHeight;
+  //     const scrollPercent = (element.scrollTop / maxScroll) * 100;
+  //     setScrollProgress(scrollPercent);
+  //   }
+  // };
   var filteredBlogs = blogData.filter((blog: BlogData) => {
     const matchesSearch =
       blog.blogTopic.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -87,10 +87,7 @@ const SearchPage: React.FC = () => {
                 <FaChevronDown />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent
-              onScroll={handleScroll}
-              className="w-56 max-h-48 overflow-y-auto no-scrollbar relative"
-            >
+            <DropdownMenuContent className="w-56 max-h-48 overflow-y-auto no-scrollbar relative">
               <div
                 className="absolute top-0 right-0 w-1 bg-blue-500"
                 style={{
